@@ -83,8 +83,8 @@ m = movmedian(y1,window_length);
 
 %% rms
 
-% obtención de la envolvente de la señal (yupper)
-[yupper,ylower] = envelope(y1,window_length,'rms');
+% obtención de la envolvente de la señal (rms)
+rms = sqrt(movmean(y1.^2, window_length));
 
 %% representación gráfica
 
@@ -110,7 +110,7 @@ xlabel("Time(s)")
 ylabel("Amplitude (V)")
 
 subplot(2,2,4)
-plot(t,[y1 yupper])
+plot(t,[y1 rms])
 title("RMS (overlaid)")
 xlabel("Time(s)")
 ylabel("Amplitude (V)")
